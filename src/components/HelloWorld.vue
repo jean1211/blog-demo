@@ -1,58 +1,149 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <Menu mode="horizontal" :theme="theme1" active-name="1">
+      <MenuItem name="1">
+      <Icon type="md-home" />
+      <a href="http://localhost:8080">首页</a>
+      </MenuItem>
+      <Submenu name="2">
+        <template slot="title">
+         <Icon type="ios-ionic" />
+          小实验
+        </template>
+        <MenuGroup title="使用">
+          <MenuItem name="3-1">新增和启动</MenuItem>
+          <MenuItem name="3-2">活跃分析</MenuItem>
+          <MenuItem name="3-3">时段分析</MenuItem>
+        </MenuGroup>
+        <MenuGroup title="留存">
+          <MenuItem name="3-4">用户留存</MenuItem>
+          <MenuItem name="3-5">流失用户</MenuItem>
+        </MenuGroup>
+      </Submenu>
+      <Submenu name="3">
+        <template slot="title">
+          <Icon type="ios-folder-open" />
+          分类
+        </template>
+        <MenuGroup title="使用">
+          <MenuItem name="3-1">新增和启动</MenuItem>
+          <MenuItem name="3-2">活跃分析</MenuItem>
+          <MenuItem name="3-3">时段分析</MenuItem>
+        </MenuGroup>
+        <MenuGroup title="留存">
+          <MenuItem name="3-4">用户留存</MenuItem>
+          <MenuItem name="3-5">流失用户</MenuItem>
+        </MenuGroup>
+      </Submenu>
+     <Submenu name="4">
+        <template slot="title">
+         <Icon type="md-flower" />
+          综合设置
+        </template>
+        <MenuGroup title="使用">
+          <MenuItem name="3-1">新增和启动</MenuItem>
+          <MenuItem name="3-2">活跃分析</MenuItem>
+          <MenuItem name="3-3">时段分析</MenuItem>
+        </MenuGroup>
+        <MenuGroup title="留存">
+          <MenuItem name="3-4">用户留存</MenuItem>
+          <MenuItem name="3-5">流失用户</MenuItem>
+        </MenuGroup>
+      </Submenu>
+    </Menu>
+    <img src="../assets/探头花.png" height="70" width="70" style="position:fixed;right:-3px;bottom:70px">
+    <img src="../assets/探头草.png" height="100" width="100" style="position:fixed;right:-29px;bottom: -13px">
+    <div class="back-top">
+     <a href="javascript:scroll(0,0)"><i class="ivu-icon ivu-icon-ios-arrow-up" ></i></a>
+    </div>
+    <img src="../assets/背景图.jpeg" height="500" width="100%">
+    <Button type="primary">1111</Button>
+    <a href="" id="top"><p>看完</p></a>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
   </div>
 </template>
-
 <script>
 export default {
+  data() {
+    return {
+      theme1: 'dark'
+    }
+  },
   name: 'HelloWorld',
   props: {
     msg: String
   }
 }
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+</script>
 <style scoped lang="less">
-h3 {
-  margin: 40px 0 0;
-}
 ul {
   list-style-type: none;
+  width: 100%;
   padding: 0;
+  opacity: 0.9;
+  background: rgba(40, 42, 44, 0.6);
+  position: fixed;
+  top: 0;
+
+  a {
+    color: rgb(213, 213, 214);
+
+    &:hover {
+      color: white;
+    }
+  }
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
+.back-top{
+  width:60px;
+  height:60px;
+  position:fixed;
+  opacity: 0.9;
+  background:#48484e;
+  bottom:0;
+  font-size: 20px;
+  border-radius:6px;
+  i{
+    margin:22px 14px;
+    color:white;
+
+  }
 }
+
 </style>
+

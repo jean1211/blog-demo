@@ -51,11 +51,16 @@
         </MenuGroup>
       </Submenu>
     </Menu>
-    <img src="../assets/探头花.png" height="70" width="70" style="position:fixed;right:-3px;bottom:70px">
-    <img src="../assets/探头草.png" height="100" width="100" style="position:fixed;right:-29px;bottom: -13px">
+    <img src="../assets/探头花.png" height="70" width="70" style="position:fixed;right:-3px;bottom:70px">  
+    <!-- 右下固定伸缩图标 -->
+    <div class="slide">
+      <img src="../assets/探头草.png" height="60" width="60">
+         <!-- 回到首页 -->
     <div class="back-top">
-     <a href="javascript:scroll(0,0)"><i class="ivu-icon ivu-icon-ios-arrow-up" ></i></a>
+     <a href="" @click.prevent="top"><i class="ivu-icon ivu-icon-ios-arrow-up" ></i></a>
     </div>
+    </div>
+         
     <img src="../assets/背景图.jpeg" height="500" width="100%">
     <Button type="primary">1111</Button>
     <a href="" id="top"><p>看完</p></a>
@@ -96,17 +101,48 @@
 export default {
   data() {
     return {
-      theme1: 'dark'
+      theme1: 'dark',
+      scrollTop: 0,
+      showTop: false,
+      scrollTrigger: false
     }
   },
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods:{
+    top(){
+      document.documentElement.scrollTop = document.body.scrollTop = 0
+    },
+    // enter(){
+    //  this.$refs.grass.style.transform = "translate(-60px)"
+    // },
+    // out(){
+    //   this.$refs.grass.style.transform = "translate(0)"
+    // }
+   
+       
+    }
   }
-}
+
+
 
 </script>
 <style scoped lang="less">
+.slide{
+  display:flex;
+  flex-direction:column-reverse;
+  position:fixed;
+  bottom:0;
+  right:0;
+  transform:translateX(0px);
+  transition:transform 1s ease;
+  &:hover{
+    transform:translateX(-60px);
+    transition:transform 1s ease;
+  }
+}
 ul {
   list-style-type: none;
   width: 100%;
@@ -131,16 +167,20 @@ li {
 }
 .back-top{
   width:60px;
-  height:60px;
+  height:42px;
   position:fixed;
-  opacity: 0.9;
-  background:#48484e;
+  opacity: 0.4;
+  background:#9c7b6f;
   bottom:0;
+  right:-60px;
   font-size: 20px;
-  border-radius:6px;
+  border-radius:5px;
   i{
-    margin:22px 14px;
+    margin:13px;
     color:white;
+    &:hover{
+      color:black;
+    }
 
   }
 }
